@@ -1,0 +1,63 @@
+body {
+font-size: medium;
+font-family: Arial;
+color: #000000;
+margin: 5px 5px 5px 5px;
+background-color: #FFFFFF;
+
+}
+
+h1 {margin:0 0%;padding-top:1em;min-height:3em;vertical-align:middle}
+#manifestazione {background-color:lightcyan}
+#luogoEdata {background-color:#fcffca}
+#categoria {background-color:#ffffff}
+
+header {margin:0 auto;text-align:center;line-height:2em}
+a.icona{cursor:pointer;}
+a.menu{cursor:pointer;color:blue;text-decoration:underline}
+a:visited {}
+a:hover {}
+p {}
+
+#radiogroup {color:#b45821;width: 80%;margin:0 auto;}
+
+td {font-size:medium;height:2.5em}
+
+#container {
+width: 95%;
+margin-left:auto;
+margin-right:auto;
+padding: 5px 5px 5px 5px;
+border: 1px solid #000000;
+}
+
+#menu {
+height: 100%;
+text-align: left;
+margin: 5px 5px 5px 5px;
+padding: 5px 5px 5px 5px;
+background-color: #FFFFFF;
+border: 1px solid #000000;
+}
+
+#areaDiLavoro{
+font-size: 100%;
+font-family: Arial;
+color: #000000;
+text-align: left;
+margin: 5px 5px 5px 5px;
+padding: 5px 5px 5px 5px;
+background-color: #FFFFFF;
+border: 1px solid #000000;
+}
+
+#footer {
+font-size:small;
+height: 100%;
+text-align: center;
+margin: 95px 5px 5px 5px;
+padding: 5px 5px 5px 5px;
+background-color: #FFFFFF;
+border: 1px solid #000000;
+}
+

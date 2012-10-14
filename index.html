@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link type="text/css" href="css/smoothness/jquery-ui-1.8.21.custom.css" rel="stylesheet" />
+	<!--link rel="shortcut icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQAQMAAAAlPW0iAAAAA1BMVEXC0V4hofdZAAAADElEQVQImWNgIA0AAAAwAAFDlLdnAAAAAElFTkSuQmCC" /-->
+	<link rel="shortcut icon" href="./img/pattini.gif" type="image\/x-icon"/>
+  <script type="text/javascript" src="js/menu.js"></script>
+  <script type="text/javascript" src="js/fileStore.js"></script>
+  <script type="text/javascript" src="js/localStorage.js"></script>
+  <script type="text/javascript" src="js/index.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/stile.css" />
+  <link rel="stylesheet" type="text/css" href="css/menu.css" />
+  <title>pattinaggio</title>
+</head>
+
+<body>
+     
+	<header>
+		<h1 id="manifestazione" title='doppio click per cambiare testo' ondblclick='modifica(this,"Manifestazione","Gara di pattinaggio")'>Festa dei pannolini</h1>
+		<h1 id="luogoEdata" title='doppio click per cambiare testo' ondblclick='modifica(this,"Data","1 aprile 2012")'>Adesso e qui</h1>
+		<h1 id="categoria" title='doppio click per cambiare testo' ondblclick='modifica(this,"Specialità","Obbligatori")'>Specialità rotelle quadre</h1>
+	</header>
+
+	<div id='radiogroup'>
+		<label>Prima di cominciare, definisci il numero dei giudici per questa gara:</label><br>
+		<input id='_5Giudici' value='5' name="numeroGiudici" type='radio' onclick='numeroGiudici(this)'/>
+		<label for='_5Giudici'>5 Giudici</label><br>
+		<input id='_3Giudici' value='3' name='numeroGiudici' type='radio' onclick='numeroGiudici(this)'/>
+		<label for='_3Giudici'>3 Giudici</label><br><br>
+		<label for='caricaFile'>Oppure carica un file esterno:</label><br>
+		<input type='file' name="files[]" onfocus='this.value=""' id='caricaFile' value='caricaFile'/>
+		<output id="list"></output>
+	</div>
+
+	<section id="areaDiLavoro" style="display:none">
+		<nav>
+			<p id='inserimentoAtleti'>
+				<label style='font-size:medium'or='nomeAtleta'>Nuovo Atleta:</label>
+				<input id="nomeAtleta" value='' onblur='inserisciRiga(this.value,false)'/>
+				<input type='button' onclick='RWswitch(false)' value='FINE'/>
+				<input type='button' onclick='reset()' id='reset' value='reset'/>
+			</p>
+			<p id='inserimentoPunteggi' style='display:none'>
+				<input type='button' onclick='RWswitch(true)' value='ritorna'/>
+				<input type='button' onclick='ordine(posizione)' value='ordine'/>
+				<input type='button' onclick='salvaSuFile(statoAttuale(),this)' value='salva'/>
+			</p>
+		</nav>
+		<table id="tabella" style="width:100%;border:1px solid;text-align:center">
+			<colgroup width="3%" style="text-align:center">
+				<col style="background-color:red" id="nomi" span=1/>
+				<col name='span' style="background-color:#c0c0c0" id="artistico" span=5/>
+				<col name='span' style="background-color:lime" id="tecnico" span=5/>
+				<col name='span' style="background-color:pink" id="totali" span=5/>
+				<col style="background-color:#fffea0" id="tot" span=1/>
+				<col style="background-color:#abcdef" id="classifica" span=2/>
+			</colgroup>
+			<thead style="border:7px solid red">
+				<tr>
+					<td>nomi</td>
+					<td name='colspan' colspan=5>artistico
+					<td name='colspan' colspan=5>tecnico</td>
+					<td name='colspan' colspan=5>totali</td>
+						<td>TOT</td>
+					<td colspan=2>classifica Generale</td>
+					</tr>
+				<tr id='rigaGiudici'></tr>
+			</thead>
+			<tbody id="corpoTabella" style="border:7px solid red"></tbody>
+		</table>
+	</section>
+	</div> <!-- fine sessioneAttiva -->
+
+	<div id="footer">
+
+		<p>
+ 		 	programmino per calcolare i punti durante le gare di pattinaggio.
+  		<br/>copyleft <a rel="license" href='./gpl.html' target='_blank'>GPL</a>
+			<br><br> <a href='https://github.com/cloc3/skettingRaces/zipball/master' target='blank'>download</a>
+		</p>
+  
+	</div><!-- fine footer -->
+</body>
+</html>

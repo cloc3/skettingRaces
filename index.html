@@ -3,19 +3,19 @@
 <head>
 
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <link type="text/css" href="css/smoothness/jquery-ui-1.8.21.custom.css" rel="stylesheet" />
 	<!--link rel="shortcut icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQAQMAAAAlPW0iAAAAA1BMVEXC0V4hofdZAAAADElEQVQImWNgIA0AAAAwAAFDlLdnAAAAAElFTkSuQmCC" /-->
 	<link rel="shortcut icon" href="./img/pattini.gif" type="image\/x-icon"/>
   <script type="text/javascript" src="js/menu.js"></script>
   <script type="text/javascript" src="js/fileStore.js"></script>
   <script type="text/javascript" src="js/localStorage.js"></script>
   <script type="text/javascript" src="js/index.js"></script>
+  <script type="text/javascript" src="js/events.js"></script>
   <link rel="stylesheet" type="text/css" href="css/stile.css" />
   <link rel="stylesheet" type="text/css" href="css/menu.css" />
   <title>pattinaggio</title>
 </head>
 
-<body>
+<body id='body'>
      
 	<header>
 		<h1 id="manifestazione" title='doppio click per cambiare testo' ondblclick='modifica(this,"Manifestazione","Gara di pattinaggio")'>Festa dei pannolini</h1>
@@ -35,17 +35,19 @@
 	</div>
 
 	<section id="areaDiLavoro" style="display:none">
+		<!--input id='body' onmouseover='creaEvento(this)'/>prova</input-->
+		<!--label id='prova' onmouseover='creaEvento(this)'>prova</label-->
 		<nav>
 			<p id='inserimentoAtleti'>
-				<label style='font-size:medium'or='nomeAtleta'>Nuovo Atleta:</label>
-				<input id="nomeAtleta" value='' onblur='inserisciRiga(this.value,false)'/>
-				<input type='button' onclick='RWswitch(false)' value='FINE'/>
-				<input type='button' onclick='reset()' id='reset' value='reset'/>
+				<label style='font-size:medium' for='nomeAtleta'>Nuovo Atleta:</label>
+				<input type='text' id="nomeAtleta" value='' onchange='inserisciRiga(this.value,false)'/>
+				<input type='button' onclick='RWswitch(false)' value='Inserimento punteggi'/>
+				<input type='button' onclick='reset()' id='reset' value='reset' tabIndex='-1'/>
 			</p>
 			<p id='inserimentoPunteggi' style='display:none'>
-				<input type='button' onclick='RWswitch(true)' value='ritorna'/>
-				<input type='button' onclick='ordine(posizione)' value='ordine'/>
-				<input type='button' onclick='salvaSuFile(statoAttuale(),this)' value='salva'/>
+				<input type='button' onclick='RWswitch(true)' tabIndex='-1' value='ritorna'/>
+				<input type='button' onclick='ordine(posizione)' tabIndex='-1' value='ordine'/>
+				<input type='button' onclick='salvaSuFile(statoAttuale(),this)' tabIndex='-1' value='salva'/>
 			</p>
 		</nav>
 		<table id="tabella" style="width:100%;border:1px solid;text-align:center">
@@ -77,7 +79,7 @@
 
 		<p>
  		 	programmino per calcolare i punti durante le gare di pattinaggio.
-  		<br/>copyleft <a rel="license" href='./gpl.html' target='_blank'>GPL</a>
+  		<br/>copyleft <a rel="license" href='./docs/gpl.html' target='_blank'>GPL</a>
 			<br><br> <a href='https://github.com/cloc3/skettingRaces/zipball/master' target='blank'>download</a>
 		</p>
   

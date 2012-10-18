@@ -33,5 +33,4 @@ caratteristiche:
 
 TODO (cose da fare):
 * verifica e adeguamento della compatibiltà croos-browser per versioni recenti, con buon supporto al linguaggio javascript;
-* miglioramento degli automatismi di tabulazione, durante l'inserimento dei punteggi;
 * miglioramento della grafica, attraveso una cura più attenta delle impostazioni css.

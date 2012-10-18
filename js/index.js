@@ -84,22 +84,17 @@ gara=new classifica('_classifica');
 function totale(elId,value){
 	var el=document.getElementById(elId);
 	if (value==null) var value=el.value;
-	var i=0;
-	while (el.childNodes[i].getAttribute('selected') != '1'&&i < 100) {
-		i++;
-	}
-	el.childNodes[i].removeAttribute('selected');
-	el.childNodes[value].setAttribute('selected',1);
+	el.value=value;
 	var trId=ultimaOccorenza(elId,/_/)[0];
 	var riga=document.getElementById(trId);
-	var select=riga.getElementsByTagName('select');
+	var inputs=riga.getElementsByTagName('input');
 	var celle=riga.getElementsByTagName('td');
 	
 	var somma=0;
 	var giudici = new Array();
 	for (var i=0;i<nG;i++) giudici[i]=Number(0);
-	for (var i=0;i<select.length;i++) {
-		var valore=Number(select[i].value);
+	for (var i=0;i<inputs.length;i++) {
+		var valore=Number(inputs[i].value);
 		somma+=Number(valore);
 		giudici[i%nG]+=Number(valore);
 	}
@@ -116,16 +111,16 @@ function totale(elId,value){
 function cella(id,sel) {
 	var cella = document.createElement('td');
 	if (sel) {
-		var select = document.createElement('select');
-		select.setAttribute('onchange','totale(this.id)')
-		select.setAttribute('id',id)
-		select.setAttribute('disabled',1)
-		for (var i=0;i<=100;i++) {
-			var opt = document.createElement('option');
-			opt.appendChild(document.createTextNode(i));
-			select.appendChild(opt);
-	}
-		cella.appendChild(select);
+		var input = document.createElement('input');
+		input.setAttribute('type','text')
+		input.setAttribute('onblur','totale(this.id)')
+		input.setAttribute('id',id);
+		input.setAttribute('disabled',1);
+		input.setAttribute('onfocus','ascoltaUnTasto(this)');
+		input.setAttribute('onselected','selezione(this)');
+		input.setAttribute('maxlength',3);
+		input.setAttribute('style','width:2em;text-align:center');
+		cella.appendChild(input);
 	}
 	if (!sel) cella.setAttribute('id',id);
 	return cella;
@@ -242,14 +237,14 @@ function inserisciRiga(nomeRiga,skip) {
 
 
 function RWswitch(y) {
-	var select = document.getElementById('corpoTabella').getElementsByTagName('select');
-	for (var i=0;i<select.length;i++) {
+	var inputs = document.getElementById('corpoTabella').getElementsByTagName('input');
+	for (var i=0;i<inputs.length;i++) {
 		if (y)	{
-			select[i].setAttribute('disabled',1);
+			inputs[i].setAttribute('disabled',1);
 			document.getElementById('inserimentoAtleti').style.display='block'
 			document.getElementById('inserimentoPunteggi').style.display='none'
 		} else {
-			select[i].removeAttribute('disabled');
+			inputs[i].removeAttribute('disabled');
 			document.getElementById('inserimentoAtleti').style.display='none'
 			document.getElementById('inserimentoPunteggi').style.display='block'
 		}
